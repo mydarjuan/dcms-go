@@ -1,8 +1,10 @@
 package models
 
 import (
+	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql" // import your used driver
+	"strconv"
 )
 
 type Student struct {
@@ -12,9 +14,9 @@ type Student struct {
 }
 
 func RegisterDB() {
-	orm.RegisterDataBase("default", "mysql", "root:123456@tcp(127.0.0.1:3306)/test?charset=utf8", 30)
 	orm.RegisterModel(new(Student))
-	orm.Debug = true
-	orm.RegisterDriver("mysql", orm.DRMySQL)
-	orm.RunSyncdb("default", false, true)
+	orm.Debug, _ = strconv.ParseBool(beego.AppConfig.String("debug"))
+	_ = orm.RegisterDataBase("default", "mysql", beego.AppConfig.String("database_url"), 30)
+	_ = orm.RegisterDriver("mysql", orm.DRMySQL)
+	_ = orm.RunSyncdb("default", false, true)
 }
