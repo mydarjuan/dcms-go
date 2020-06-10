@@ -1,4 +1,4 @@
-module quickstart
+module dcms-go
 
 go 1.12
 

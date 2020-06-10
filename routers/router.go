@@ -1,11 +1,11 @@
 package routers
 
 import (
-	"quickstart/controllers"
+	"dcms-go/controllers"
 	"github.com/astaxie/beego"
 )
 
 func init() {
-    beego.Router("/", &controllers.MainController{})
-	beego.Router("/index/students", &controllers.MainController{},"get:GetStudents")
+	beego.Router("/", &controllers.MainController{})
+	beego.Router("/index/students", &controllers.MainController{}, "get:GetStudents")
 }

@@ -1,9 +1,9 @@
 package main
 
 import (
+	"dcms-go/models"
+	_ "dcms-go/routers"
 	"github.com/astaxie/beego"
-	"quickstart/models"
-	_ "quickstart/routers"
 )
 
 func init() {

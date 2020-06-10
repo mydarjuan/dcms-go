@@ -1,9 +1,9 @@
 package controllers
 
 import (
+	"dcms-go/models"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
-	"quickstart/models"
 )
 
 type MainController struct {
